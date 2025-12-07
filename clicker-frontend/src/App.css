@@ -1,0 +1,149 @@
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  background: white;
+  padding: 60px 80px;
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 40px;
+  font-size: 18px;
+}
+
+.counter-display {
+  margin: 40px 0;
+}
+
+.counter-value {
+  font-size: 120px;
+  font-weight: bold;
+  color: #e74c3c;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.counter-value.animate {
+  transform: scale(1.2);
+}
+
+.counter-label {
+  color: #7f8c8d;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.button-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.click-button,
+.reset-button {
+  padding: 20px 50px;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.click-button {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+}
+
+.click-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(52, 152, 219, 0.4);
+}
+
+.reset-button {
+  background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+  color: white;
+}
+
+.reset-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(149, 165, 166, 0.4);
+}
+
+.click-button:disabled,
+.reset-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.message-box {
+  background: #ecf0f1;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 30px 0;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-box p {
+  color: #2c3e50;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.info-box {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #3498db;
+}
+
+.info-box h3 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.info-box p {
+  color: #555;
+  font-size: 14px;
+  margin: 5px 0;
+  line-height: 1.6;
+}
+
+.plugin-info {
+  color: #27ae60 !important;
+  font-weight: 600;
+  margin-top: 10px !important;
+}
+

@@ -1,0 +1,54 @@
+services:
+  clicker-frontend:
+    image: ${USERNAME}/clicker-frontend:${TAG}
+    container_name: clicker-frontend
+    expose:
+      - "3000"
+    networks:
+      - clicker-network
+    restart: unless-stopped
+
+  clicker-backend:
+    image: ${USERNAME}/clicker-backend:${TAG}
+    container_name: clicker-backend
+    environment:
+      - PORT=8000
+      - PLUGIN_HOST=clicker-plugin
+      - PLUGIN_PORT=50001
+    expose:
+      - "8000"
+    depends_on:
+      - clicker-plugin
+    networks:
+      - clicker-network
+    restart: unless-stopped
+
+  clicker-plugin:
+    image: ${USERNAME}/clicker-plugin:${PLUGIN_TAG}
+    container_name: clicker-plugin
+    environment:
+      - PLUGIN_PORT=50001
+    expose:
+      - "50001"
+    networks:
+      - clicker-network
+    restart: unless-stopped
+
+  gateway:
+    image: nginx:alpine
+    container_name: clicker-gateway
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx_gateway.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - clicker-frontend
+      - clicker-backend
+    networks:
+      - clicker-network
+    restart: unless-stopped
+
+networks:
+  clicker-network:
+    driver: bridge
+

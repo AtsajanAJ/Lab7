@@ -1,0 +1,24 @@
+FROM node:lts-alpine3.18
+
+WORKDIR /app
+
+# Set production environment
+ENV NODE_ENV=production
+
+# Copy package files
+COPY package.json ./
+COPY package-lock.json* ./
+
+# Install only production dependencies
+RUN npm ci --only=production && npm cache clean --force
+
+# Copy application files
+COPY clicker.proto ./
+COPY plugin.js ./
+
+# Expose port
+EXPOSE 50001
+
+# Start application
+CMD ["node", "plugin.js"]
+
