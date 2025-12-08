@@ -338,3 +338,4 @@ docker compose restart
 3. ตรวจสอบ network: `docker network ls`
 4. ตรวจสอบ IP: `ip addr show`
 
+

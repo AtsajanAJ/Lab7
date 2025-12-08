@@ -1,0 +1,14 @@
+{
+  "name": "clicker-plugin-p1",
+  "version": "1.0.0",
+  "description": "Clicker Plugin P1 - Increment by 2",
+  "main": "plugin.js",
+  "scripts": {
+    "start": "node plugin.js"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.9.14",
+    "@grpc/proto-loader": "^0.7.10"
+  }
+}
+

@@ -18,7 +18,8 @@ services:
     expose:
       - "8000"
     depends_on:
-      - clicker-plugin
+      clicker-plugin:
+        condition: service_healthy
     networks:
       - clicker-network
     restart: unless-stopped
@@ -30,6 +31,12 @@ services:
       - PLUGIN_PORT=50001
     expose:
       - "50001"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "50001"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
     networks:
       - clicker-network
     restart: unless-stopped

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+message ClickRequest {
+  int32 currentCount = 1;
+}
+
+message ClickReply {
+  int32 newCount = 1;
+}
+
+service Clicker {
+  rpc handleClick (ClickRequest) returns (ClickReply) {};
+}
+
